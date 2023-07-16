@@ -757,15 +757,6 @@ async def memberbalance(interaction: discord.Interaction, member: discord.Member
 
 
 
-@bot.tree.command(name="insulter", description="insult anyone you dont like!")
-async def insulter(interaction:discord.Interaction, member: discord.Member, insult: str):
-    if member == interaction.user:
-        await interaction.response.send_message(f"{interaction.user.mention} you cant insult yourself!!")
-    j = interaction.user.mention
-    h = member.mention
-    em01=discord.Embed(title =f"{j}'s insult to {h}")
-    em01.add_field(name=f"It says:", value=f"**{insult}**",inline=True)
-    await interaction.response.send_message(embed=em01)
 
 
 
@@ -781,37 +772,6 @@ async def insulter(interaction:discord.Interaction, member: discord.Member, insu
 
 
 
-@bot.tree.command(name="afk", description="sets an afk status for you")
-async def afk(interaction: discord.Interaction, *, afk_message: str = "AFK"):
-    await interaction.user.edit(nick=f"AFK {interaction.user.name}")    
-    await interaction.response.send_message(f"{interaction.user.mention} is now AFK: {afk_message}")
-
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-    for member in message.mentions:
-        if member.nick and "[AFK]" in member.nick:
-            await message.channel.send(f"{member.display_name} is currently AFK.")
-
-    await bot.process_commands(message)
-
-@bot.event
-async def on_member_update(before, after):
-    if before.nick != after.nick and "[AFK]" in after.nick:
-        await after.edit(nick=after.nick.replace("[AFK]", "").strip())
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-bot.run("MTExODkyOTAxODQyNzgyMjE0MA.Gy42eu.CcReQ8I0MBSwdW3uBQHDFUa6KNYPc5tZtOhbYY")
