@@ -11,7 +11,7 @@ import os
 from discord.ui import View, Button, Select
 import asyncio
 import aiohttp
-from app_commands import Choice
+from discord.app_commands import Choice
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all(),
 case_insensitive=True)
 
