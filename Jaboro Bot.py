@@ -11,10 +11,12 @@ import os
 from discord.ui import View, Button, Select
 import asyncio
 import aiohttp
+from app_commands import Choice
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all(),
 case_insensitive=True)
 
-mainshop = [{"name":"Watch","price":100,"description":"Tell the time"}]
+mainshop = [{"name":"Watch","price":100,"description":"Tell the time"
+            "name":"Jaboro's Respect","price":20000,"description":"Earn Jaboros Respect by Getting a role when you buy this!"}]
 
 
 mod_channel_id = 1128903406707277904
